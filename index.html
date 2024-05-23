@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phrog Coin - The Cutest Crypto Meme Coin!</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #e8f5e9;
+            color: #1b5e20;
+            text-align: center;
+            padding: 0;
+            margin: 0;
+            overflow-x: hidden;
+        }
+        .container {
+            padding: 0;
+            margin: 0;
+        }
+        header {
+            padding: 20px 0;
+            margin-bottom: 30px;
+        }
+        header h1 {
+            font-size: 3em;
+            color: #2e7d32;
+            margin: 0;
+        }
+        header img {
+            height: 80px;
+            width: 80px;
+            border-radius: 50%;
+        }
+        .main-content {
+            background-color: #c8e6c9;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 0 10px;
+        }
+        .main-content video {
+            width: 250px;
+            margin: 20px 0;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+        .main-content h2 {
+            font-size: 2em;
+            color: #2e7d32;
+        }
+        .main-content p {
+            font-size: 1.2em;
+            color: #388e3c;
+        }
+        .video-content {
+            margin: 20px 0;
+        }
+        .meme-collection-title {
+            font-size: 2em;
+            color: #2e7d32;
+            margin-top: 20px;
+        }
+        .meme-collection {
+            display: flex;
+            overflow-x: auto;
+            padding: 20px;
+            background-color: #a5d6a7;
+            border-radius: 10px;
+            margin: 20px 10px;
+        }
+        .meme-collection video {
+            margin: 0 10px;
+            height: 150px;
+        }
+        .token-address {
+            margin: 20px 0;
+            font-size: 1.5em;
+            color: #2e7d32;
+        }
+        .social-icons img {
+            width: 50px;
+            height: 50px;
+            margin: 0 10px;
+            border-radius: 50%;
+        }
+        footer {
+            background-color: #1b5e20;
+            color: #ffffff;
+            padding: 10px 0;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="assets/phrog_logo.png" alt="Phrog Logo">
+            <h1>Phrog Coin</h1>
+            <p>The Cutest Crypto Meme Coin!</p>
+        </header>
+        
+        <div class="main-content">
+            <video id="cutePhrogVideo" width="320" height="240" autoplay loop muted playsinline>
+                <source src="assets/cute_phrog.mov" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <h2>What is Phrog Coin?</h2>
+            <p>Phrog Coin is the funniest, cutest, and most hoppin' crypto meme coin in the market! Join the Phrog family and jump into the future of digital currency with a smile.</p>
+            <h2>Why Choose Phrog Coin?</h2>
+            <p>Phrog Coin is not just about making profits, it's about creating joy and fun in the crypto world. With our adorable mascot and community-driven approach, you're not just investing in a coin, you're becoming part of a family.</p>
+        </div>
+
+        <div class="token-address">
+            <p>Token Address: AW9b7MxtqHb1V9thKsh7Grf72i93LwSSs2tEX4Vs1xpG</p>
+            <div class="social-icons">
+                <a href="https://twitter.com" target="_blank">
+                    <img src="assets/icons/x.png" alt="Twitter">
+                </a>
+                <a href="https://t.me/PhrogCTO" target="_blank">
+                    <img src="assets/icons/telegram.png" alt="Telegram">
+                </a>
+                <a href="https://dexscreener.com/solana/ce8ccbmytisxvbaxzgjt3qwbvhdikygvppcumfhabkf5" target="_blank">
+                    <img src="assets/icons/dexscreener.png" alt="Dexscreener">
+                </a>
+            </div>
+        </div>
+
+        <h2 class="meme-collection-title">MEME COLLECTION</h2>
+        <div class="meme-collection" id="memeCollection">
+            <!-- Meme videos will be inserted here by JavaScript -->
+        </div>
+
+        <footer>
+            <p>Stay Hoppy! Join the Phrog community today!</p>
+            <p>&copy; 2024 Phrog Coin</p>
+        </footer>
+    </div>
+    
+    <audio id="phrogSound" autoplay>
+        <source src="assets/phrog.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const phrogSound = document.getElementById('phrogSound');
+            const cutePhrogVideo = document.getElementById('cutePhrogVideo');
+
+            cutePhrogVideo.addEventListener('click', () => {
+                if (phrogSound.paused) {
+                    phrogSound.play().catch(error => {
+                        console.error("Audio play failed:", error);
+                    });
+                }
+            });
+
+            const memeCollection = document.getElementById('memeCollection');
+            const memeFolder = 'assets/meme/';
+            const memeVideos = Array.from({length: 15}, (_, i) => `${i + 1}.MOV`);
+
+            memeVideos.forEach(video => {
+                const videoElement = document.createElement('video');
+                videoElement.src = memeFolder + video;
+                videoElement.autoplay = true;
+                videoElement.loop = true;
+                videoElement.muted = true;
+                videoElement.playsInline = true;
+                memeCollection.appendChild(videoElement);
+            });
+        });
+    </script>
+</body>
+</html>
